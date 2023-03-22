@@ -20,7 +20,13 @@ class CreateUserDetailsTable extends Migration
             $table->string('pin_code');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('address',500);
-
+            $table->string('username');
+            $table->string('profile_pic');
+            $table->string('background_pic');
+            $table->string('bio');
+            $table->date('dob');
+            $table->string('country');
+            $table->string('state');
             $table->timestamps();
         });
     }

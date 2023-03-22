@@ -56,7 +56,33 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/profile',[App\Http\Controllers\Frontend\UserController::class,'index']);
         Route::post('/profile',[App\Http\Controllers\Frontend\UserController::class,'updateUserDetail']);
 
-   
+        //
+        
+        Route::controller(App\Http\Controllers\Frontend\profileController::class)->group(function () {
+            Route::get('/profile/{user_id}', 'index');
+            Route::get('/profile/edit/{user_id}', 'edit');
+            Route::put('/profile/edit/{user_id}', 'update');
+            Route::post('/followData/follow','followDatafollow');
+            Route::post('/followData/unfollow','followDataUnfollow');
+        });
+
+        Route::controller(App\Http\Controllers\Frontend\clintController::class)->group(function () {
+            Route::get('/makeclint','index');
+            Route::post('/makeclint/{user_id}','store');
+        });
+
+        Route::controller(App\Http\Controllers\Frontend\searchController::class)->group(function () {
+            Route::get('/search','index');
+            Route::post('/searchUser','searchUser');
+
+        });
+        Route::controller(App\Http\Controllers\Frontend\actionController::class)->group(function () {
+            Route::post('/likedTweet','likedTweet');
+            Route::post('/unlikedTweet','unlikedTweet');
+            Route::post('/comment','comment');
+        });
+
+        Route::get('/feed', [App\Http\Controllers\Frontend\feedController::class, 'index']);
 });
 
 Route::get('thank-you',[App\Http\Controllers\Frontend\FrontendController::class,'thankyou']);

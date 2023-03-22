@@ -15,6 +15,18 @@ class UserDetail extends Model
         'user_id',
         'phone',
         'pin_code',
-        'address'
+        'address',
+        'username',
+        'profile_pic',
+        'background_pic',
+        'bio',
+        'dob',
+        'country',
+        'state',
     ];
+
+    public function userMainDetail()
+    {
+        return $this->belongsTo(User::class,'user_id','id');
+    }
 }

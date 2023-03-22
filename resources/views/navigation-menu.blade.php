@@ -213,3 +213,8 @@
         </div>
     </div>
 </nav>
+{{-- .. --}}
+<form action="{{'/getcomment'}}" method="post">
+<input type="text" name="comment" >
+
+</form>

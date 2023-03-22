@@ -74,6 +74,8 @@
                                             My Wishlist</a></li>
                                     <li><a class="dropdown-item" href="{{ url('cart') }}"><i
                                                 class="fa fa-shopping-cart"></i> My Cart</a></li>
+                                                <li><a class="dropdown-item" href="{{ url('/feed') }}"><i
+                                                    class="fa fa-shopping-cart"></i> Social</a></li>
                                     <li>
 
                                         <a class="dropdown-item" href="{{ route('logout') }}"
@@ -98,7 +100,7 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand d-block d-sm-block d-md-none d-lg-none" href="#">
-                top ecom
+      Social Book Store
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
