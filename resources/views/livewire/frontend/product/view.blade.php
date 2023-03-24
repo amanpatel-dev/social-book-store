@@ -69,7 +69,6 @@
                                             style="background-color:{{ $colorItem->color->code }}"
                                             wire:click="colorSelected({{ $colorItem->id }})">
                                             {{ $colorItem->color->name }}
-
                                         </label>
                                     @endforeach
                                 @endif

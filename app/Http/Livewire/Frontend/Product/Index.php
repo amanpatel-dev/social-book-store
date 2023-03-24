@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class Index extends Component
 {
-    public $products, $categroy, $brandInputs = [],$priceInput;
+    public $products, $category, $brandInputs = [],$priceInput;
 
     //this is a proprty of livewire protected $queryString
     protected $queryString = [
@@ -38,6 +38,7 @@ class Index extends Component
             })
             ->where('status', '0')
             ->get();
+
 
         return view('livewire.frontend.product.index', [
             'products' => $this->products,
