@@ -36,11 +36,20 @@
                             <div class="col-sm-4 me-1"> {{ CommonHelper::times_ago($item->updated_at) }}</div>
                         </div>
                         <div>
-                            <div class="clints-post-text">
-                                <p>{{ $item->clint }}</p>
+                            <div class="clint-post-image">
+                                <div class="clints-post-text">
+                                    <p>{{ $item->clint }}</p>
+                                </div>
+                                @if ($item->image)
+                                    <img src="{{ asset('uploads/tweetsImg/' . $item->image) }}"class="img-fluid" alt=""
+                                        srcset="">
+                                    
+                                    @endif
                             </div>
+                         
+                          
                         </div>
-                        <div class="d-flex col-xm-9 justify-content-left">
+                        <div class="d-flex col-xm-9 justify-content-left mt-3">
                             <div> <span
                                     class="action-pic {{ CommonHelper::userLiked(Auth::user()->id, $item->id) ? 'unlike-btn' : 'like-btn' }} "
                                     alt="" id="like-btn" data-tweet={{ $item->id }}>
@@ -51,9 +60,13 @@
                                     </div>
                                 </span>
                             </div>
-                            <div class="ms-5-"> <span class="action-pic comment" alt="" id="comment-btn"
+                            <div class="ms-5"> <span class="action-pic comment" alt="" id="comment-btn"
                                     data-tweet={{ $item->id }} data-bs-toggle="modal" data-bs-target="#exampleModal"><i
-                                        class="bi bi-chat"></i></span>
+                                        class="bi bi-chat"></i>
+                                        <div class="mt-counter likes-count d-inline-block">
+                                            <p class="tweet_comment_count">{{ CommonHelper::commentCount($item->id) }}</p>
+                                        </div>
+                                    </span>
                             </div>
 
                             {{-- <div> <span class="action-pic" alt="" id="retweet-btn"><i

@@ -95,8 +95,8 @@
                                         srcset="">
                                 </div>
                                 <div class="clints-post-text">
-
-                                    <p>{{ $item->clint }}</p>
+                                   
+                                        <p>{{ $item->clint }}</p>
                                 </div>
                             </div>
                             <div class="d-flex col-xm-9 justify-content-left">
@@ -134,11 +134,22 @@
                 </div>
             @endforeach
         </div>
+        <div class="">
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content popUpComment">
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
 @section('script')
     <script src="{{ asset('/js/photo.js') }}"></script>
+    <script src="{{ asset('/js/like.js') }}"></script>
     <script src="{{ asset('/js/follow.js') }}"></script>
     <script src="{{ asset('/js/comment.js') }}"></script>
 @endsection

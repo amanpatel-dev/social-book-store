@@ -23,16 +23,15 @@ class profileController extends Controller
         $isUserFollow = FollowHelper::isUserFollow(Auth::user()->id, $userid);
         $countFollowers = FollowHelper::countFollowers($userid);
         $countFollowing = FollowHelper::countFollowing($userid);
-         $user_id = Auth::user()->id ;
-        if($userid!= $user_id )
-        { $post = allClint::where('user_id', $userid)->get();
-        }
-        else{
+        $user_id = Auth::user()->id;
+        if ($userid != $user_id) {
+            $post = allClint::where('user_id', $userid)->get();
+        } else {
             $post = allClint::where('user_id', $user_id)->get();
         }
-       
-       
-        return view('Frontend.profile.index', compact('userDetail', 'isUserFollow', 'countFollowers', 'countFollowing','post'));
+
+
+        return view('Frontend.profile.index', compact('userDetail', 'isUserFollow', 'countFollowers', 'countFollowing', 'post'));
     }
     public function edit(Request $request, $userid)
     {
@@ -45,8 +44,12 @@ class profileController extends Controller
     {
         $usermain = User::findOrFail($userid);
         $usermain->name = $request->name;
-        $user = userDetail::findOrFail($userid);
+        $user = UserDetail::findOrFail($userid);
+        $profile_pic =  $user->profile_pic;
+        $background_pic =  $user->background_pic;
 
+        $finalPathProfile = "";
+        $finalPathBackground = "";
         $uploadPathProfile = 'uploads/profile/';
         if ($request->hasFile('profileImage')) {
             $file = $request->file('profileImage');
@@ -55,7 +58,7 @@ class profileController extends Controller
             $file->move($uploadPathProfile, $filename);
             $finalPathProfile = $uploadPathProfile . $filename;
         }
-        $manager = new ImageManager(['driver' => 'gd']);
+        // $manager = new ImageManager(['driver' => 'gd']);
         $uploadPathBackground = 'uploads/background/';
         if ($request->hasFile('backgroundImage')) {
             $file = $request->file('backgroundImage');
@@ -66,16 +69,27 @@ class profileController extends Controller
             $file->move($uploadPathBackground, $filename);
             $finalPathBackground = $uploadPathBackground . $filename;
         }
-        $user->profile_pic = $finalPathProfile;
-        $user->background_pic = $finalPathBackground;
+        if ($finalPathProfile) {
+            $user->profile_pic = $finalPathProfile;
+        } else {
+            $user->profile_pic = $profile_pic;
+        }
+
+        if ($finalPathBackground) {
+            $user->background_pic = $finalPathBackground;
+        } else {
+            $user->background_pic = $background_pic;
+        }
+
         $user->username = $request->username;
         $user->bio = $request->bio;
         $user->country = $request->country;
         $user->state = $request->state;
 
-
         $usermain->save();
         $user->save();
+
+        return redirect('/profile/'.$userid);
     }
     public function followDatafollow(Request $request)
     {
@@ -94,6 +108,5 @@ class profileController extends Controller
     }
     public function usertweet(Request $request)
     {
-    
     }
 }

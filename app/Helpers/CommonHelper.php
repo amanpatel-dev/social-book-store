@@ -99,4 +99,12 @@ class CommonHelper extends Controller
             ->count();
         return $likecount;
     }
+    public static function commentCount($tweet_id)
+    {
+        $likecount = DB::table('comment')
+            ->select('comment_id')
+            ->where('comment_id', '=', $tweet_id)
+            ->count();
+        return $likecount;
+    }
 }

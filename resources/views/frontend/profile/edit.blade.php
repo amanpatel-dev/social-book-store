@@ -8,20 +8,20 @@
 
         {{-- profile inf --}}
         <div class="col-sm-12 profile-banner">
-                <img src="http://127.0.0.1:8000/uploads/background/1673614212.jpg" class="img-fluid" alt="">
-                {{-- <img src="{{ asset($userDetail->profile_pic) }}" class="img-fluid" alt=""> --}}
+                {{-- <img src="http://127.0.0.1:8000/uploads/background/1673614212.jpg" class="img-fluid" alt=""> --}}
+                <img src="{{ asset($userDetail->background_pic) }}" class="img-fluid" alt="">
                 <div class="banner-edit-btn">
                 {{-- <a class="button-13" type="in" ><i class="bi bi-pencil-square"></i></a> --}}
-                <label for="backgroundImage">
+                {{-- <label for="backgroundImage">
                     <i class="bi bi-images "></i>
-                </label>
-                <input type="file" id="backgroundImage" class="d-none" name="backgroundImage" id="">
+                </label> --}}
+                <input type="file" id="backgroundImage"  name="backgroundImage" id="">
             </div>
         </div>
         <div class="pb-0 p-3 mb-3 ">
             <div class="d-flex  ">
-                {{-- <div> <img src="{{ asset($userDetail->background_pic) }}" class="main-profile-pic" alt=""> --}}
-                <div> <img src="http://127.0.0.1:8000/images/aman.jpg " class="main-profile-pic" alt="">
+                <div> <img src="{{ asset($userDetail->profile_pic) }}" class="main-profile-pic" alt="">
+                {{-- <div> <img src="http://127.0.0.1:8000/images/aman.jpg " class="main-profile-pic" alt=""> --}}
                 </div>
                 <div class="mr-2 mb-2">
                     <input type="file" name="profileImage" id="">

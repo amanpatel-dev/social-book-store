@@ -56,7 +56,7 @@
                                 </div>
                             @endforelse
                             <div  class=" text-center" >
-                                <a href="{{'collections'}}"  class="btn btn-warning" > view more</a>
+                                <a href="{{'/collections'}}"  class="btn btn-warning" > view more</a>
                             </div>
                      
                     </div>

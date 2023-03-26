@@ -80,6 +80,8 @@ Route::middleware(['auth'])->group(function () {
             Route::post('/likedTweet','likedTweet');
             Route::post('/unlikedTweet','unlikedTweet');
             Route::post('/comment','comment');
+            Route::post('/storeComment','storeComment');
+
         });
 
         Route::get('/feed', [App\Http\Controllers\Frontend\feedController::class, 'index']);
