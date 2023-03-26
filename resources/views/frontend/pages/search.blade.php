@@ -7,7 +7,7 @@
                 <div class="col-md-12">
                     <h1>Search results for :{{$searchKeyword}}</h1>
                     <div class="underline"></div>
-                    <div class="row ">
+                    <div class="row">
                             @forelse ($searchProducts as $productItem)
                                 <div class="col-sm-12">
                                     <div class="product-card  d-flex">

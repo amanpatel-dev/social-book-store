@@ -39,7 +39,7 @@ Route::controller(App\Http\Controllers\Frontend\FrontendController::class)->grou
     Route::get('/collections/{category_slug}/{product_slug}', 'productView');
     Route::get('/new-arrival','newArrival');
     Route::get('/featured-product','featuredProduct');
-    Route::get('search','searchProducts');
+    Route::get('searchProduct','searchProducts');
     Route::get('thank-you','thankyou');
 
 });
@@ -141,6 +141,7 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
         Route::put('/orders/{orderId}', 'updateOrderStatus');
         Route::get('/invoice/{orderId}', 'viewInvoice');
         Route::get('/invoice/{orderId}/generate', 'generateInvoice');
+        Route::get('/invoice/{orderId}/mail', 'mailInvoice');
     });
     Route::controller(App\Http\Controllers\Admin\UserController::class)->group(function () {
         Route::get('/users', 'index');

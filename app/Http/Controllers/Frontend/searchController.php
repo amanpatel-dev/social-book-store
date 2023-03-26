@@ -18,16 +18,16 @@ class searchController extends Controller
     {
         $query = $request->search;
         $filterResult = User::where('name', 'LIKE', '%' . $query . '%')->get();
-        $output = "";
+        $output =( $filterResult->id) ;
         if (isset($filterResult)) {
 
             foreach ($filterResult as $filterResult) {
-            
+
                 $output .= '
         <div>
         <ul>
             <li>
-                <a class="card mt-3" href="'.url("/profile/".$filterResult->id).'">
+                <a class="card mt-3" href="' . url("/profile/" . $filterResult->id) . '">
                     <div class=" card-body d-flex ">
                         <div class="col-2">
                             <img src="' . asset('images/AliAbdaal.jpg') . ' " class="profile-pic" alt="">
@@ -62,8 +62,8 @@ class searchController extends Controller
         return Response($output);
     }
 
-    public function likedTweet(Request $request)
-    {
-       dd($request);
-    }
+    // public function likedTweet(Request $request)
+    // {
+    //    dd($request);
+    // }
 }

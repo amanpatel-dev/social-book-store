@@ -5,7 +5,7 @@ $(function () {
         $.post("searchUser", { search: search }, function (data) {
             console.log(data);
             $(".result-data").html(data);
-            if (search == "") {
+            if (search =="") {
                 $(".result-data").html("");
                 $(".result-data").hide();
             }
