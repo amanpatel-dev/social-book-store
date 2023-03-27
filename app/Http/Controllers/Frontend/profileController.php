@@ -89,7 +89,7 @@ class profileController extends Controller
         $usermain->save();
         $user->save();
 
-        return redirect('/profile/'.$userid);
+        return redirect('/profile/' . $userid);
     }
     public function followDatafollow(Request $request)
     {
@@ -106,7 +106,28 @@ class profileController extends Controller
         $follower_id = Auth::user()->id;
         $followdata =  followData::where('following_id', '=', $following_id)->where('follower_id', '=', $follower_id)->delete();
     }
-    public function usertweet(Request $request)
+    public function photo(Request $request)
     {
+        $userid = Auth::user()->id;
+        $user = UserDetail::where('user_id', '=',Auth::user()->id)->first();
+
+        $uploadPathProfile = 'uploads/profile/';
+        $image_parts = explode(";base64,", $request->image);
+        $image_type_aux = explode("image/", $image_parts[0]);
+        $image_type = $image_type_aux[1];
+        $image_base64 = base64_decode($image_parts[1]);
+        $filename=uniqid() . '.png';
+        $file = $uploadPathProfile.$filename;
+        file_put_contents($file, $image_base64);
+
+        $response = array(
+            'status' => true,
+            'msg' => 'Image uploaded on server successfully!',
+            'file' => $file,
+            'userid' => $user
+        );
+        echo json_encode($response);
+        $user->profile_pic = $filename;
+        $user->save();
     }
 }

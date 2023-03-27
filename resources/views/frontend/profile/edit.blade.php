@@ -1,31 +1,23 @@
 @extends('layouts.apps')
 @section('content')
-
-    <form action="{{ url('profile/edit/' . $userDetail->userMainDetail->id) }}" method="POST"
-        enctype="multipart/form-data">
+    <form action="{{ url('profile/edit/' . $userDetail->userMainDetail->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
         {{-- profile inf --}}
         <div class="col-sm-12 profile-banner">
-                {{-- <img src="http://127.0.0.1:8000/uploads/background/1673614212.jpg" class="img-fluid" alt=""> --}}
-                <img src="{{ asset($userDetail->background_pic) }}" class="img-fluid" alt="">
-                <div class="banner-edit-btn">
-                {{-- <a class="button-13" type="in" ><i class="bi bi-pencil-square"></i></a> --}}
-                {{-- <label for="backgroundImage">
-                    <i class="bi bi-images "></i>
-                </label> --}}
-                <input type="file" id="backgroundImage"  name="backgroundImage" id="">
+            <img src="{{ asset($userDetail->background_pic) }}" class="img-fluid" alt="">
+            <div class="banner-edit-btn">
+                <input type="file" id="backgroundImage" name="backgroundImage" id="">
             </div>
         </div>
         <div class="pb-0 p-3 mb-3 ">
             <div class="d-flex  ">
-                <div> <img src="{{ asset($userDetail->profile_pic) }}" class="main-profile-pic" alt="">
-                {{-- <div> <img src="http://127.0.0.1:8000/images/aman.jpg " class="main-profile-pic" alt=""> --}}
+                <div> <img src="{{ asset('uploads/profile/'.$userDetail->profile_pic) }}" class="main-profile-pic" alt="">
                 </div>
                 <div class="mr-2 mb-2">
-                    <input type="file" name="profileImage" id="">
-                    {{-- <button class="button-13" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" role="button"><i class="bi bi-pencil-square"></i></button> --}}
+                    {{-- <input type="file" name="profileImage" id=""> --}}
+                    <div class="btn btn-primary imgEditBtn" data-bs-toggle="modal" data-bs-target="#exampleModal" >edit</div>
                 </div>
             </div>
             <div style="font-weight: bold"><input type="text" name="name" class="form-control mb-2"
@@ -69,21 +61,51 @@
 
     <!-- Button trigger modal -->
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+
+
+    <div class="">
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content imgEdit">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Comment</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="containerImg">
+                            <div class="row">
+                              <div class="col-lg-6" align="center">
+                                <label onclick="start_cropping()">Browse image</label>
+                                <div id="display_image_div">
+                                  <img name="display_image_data" id="display_image_data" src="{{ asset('uploads/profile/'.$userDetail->profile_pic) }}" alt="Picture" class="img-fluid">
+                                </div>
+                                <input type="hidden" name="cropped_image_data" id="cropped_image_data">
+                                <br>
+                                <input type="file" name="browse_image" id="browse_image" class="form-control">
+                              </div>
+                              <div class="col-lg-6" align="center">
+                                <label>Preview</label>
+                                <div id="cropped_image_result">
+                                  <img style="width: 350px;" src="dummy-image.png" />
+                                </div>
+                                <br>
+                                <button type="button" class="btn btn-success" id="crop_button">Crop</button>
+                                {{-- <button type="button" class="btn btn-danger" id="download_button" onclick="download()">Download</button> --}}
+                                <button type="button" class="btn btn-warning" id="upload_button" onclick="upload()">Upload</button>
+                              </div>
+                            </div>
+                            <!--  end row -->
+                          </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary getcomment" data-tweet=' . Auth::user()->id. '>Comment</button>
+                      </div>
                 </div>
             </div>
         </div>
     </div>
+@section('script')
+    <script src="{{ asset('/js/photo.js') }}"></script>
+@endsection
 @endsection

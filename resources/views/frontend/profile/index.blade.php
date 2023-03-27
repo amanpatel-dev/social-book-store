@@ -132,7 +132,7 @@
                     </div>
 
                 </div>
-            @endforeach
+            @endforeach 
         </div>
         <div class="">
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"

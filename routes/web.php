@@ -64,6 +64,8 @@ Route::middleware(['auth'])->group(function () {
             Route::put('/profile/edit/{user_id}', 'update');
             Route::post('/followData/follow','followDatafollow');
             Route::post('/followData/unfollow','followDataUnfollow');
+            Route::post('/profileUpload','photo');
+            
         });
 
         Route::controller(App\Http\Controllers\Frontend\clintController::class)->group(function () {
