@@ -15,26 +15,26 @@
         </div>
         <hr>
         @foreach ($post as $item)
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-between mt-3 tweet-div">
 
                 {{-- {{dd($item)}} --}}
                 {{-- {{dd($item->tweetUserDetail->username)}} --}}
 
-                <div class="contents col-sm-11 d-flex justify-content-between">
+                <div class="contents col-sm-12 d-flex justify-content-between">
                     <div class="col-2 me-2">
                         <img src="{{ asset('images/AliAbdaal.jpg') }}" class="profile-pic" alt="">
                     </div>
-                    <div class="col-9">
+                    <div class="col-10">
                         <div class="d-flex ">
-                            <div class="col-sm-4 me-1"><a
+                            <div class="col-sm-3 me-1"><a
                                     href="{{ url('/profile/' . $item->user_id) }}">{{ $item->tweetUserDetail->name }}</a>
                             </div>
-                            <div class="col-sm-4 me-1">
+                            <div class="col-sm-2 me-1">
                                 {{ Str::limit('@' . $item->tweetUserDetail->userDetail->username, 5) }}
                                 </p>
                             </div>
-                            <div class="col-sm-4 me-1"> {{ CommonHelper::times_ago($item->updated_at) }}</div>
-                        </div>
+                            <div class="col-sm-2 me-1"> {{ CommonHelper::times_ago($item->updated_at) }}</div>
+                        </div> 
                         <div>
                             <div class="clint-post-image">
                                 <div class="clints-post-text">
@@ -49,7 +49,7 @@
                          
                           
                         </div>
-                        <div class="d-flex col-xm-9 justify-content-left mt-3">
+                        <div class="d-flex col-xm-12 justify-content-left mt-3">
                             <div> <span
                                     class="action-pic {{ CommonHelper::userLiked(Auth::user()->id, $item->id) ? 'unlike-btn' : 'like-btn' }} "
                                     alt="" id="like-btn" data-tweet={{ $item->id }}>
@@ -78,13 +78,13 @@
                     </div>
                 </div>
 
-                <div class="col-1 text-end">
+                {{-- <div class="col-1 text-end">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
                         <path
                             d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
                     </svg>
-                </div>
+                </div> --}}
 
             </div>
         @endforeach

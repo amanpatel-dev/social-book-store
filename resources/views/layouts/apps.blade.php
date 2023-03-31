@@ -32,11 +32,10 @@
                     @yield('content')
                 </div>
                 <div class="main-btns col-md-8 col-sm-12 col-lg-6">
-                    <div class=" d-flex justify-content-between">
-                        <div class="bottom-options"><a href="/feed"><i class="bi bi-house"></a></i></div>
-                        <div class="bottom-options"><a href="/search"><i class="bi bi-search"></a></i></div>
-                        <div class="bottom-options"><a href="/notification"><i class="bi bi-bell"></a></i></div>
-                        <div class="bottom-options"><a href="/chat"><i class="bi bi-envelope"></a></i></div>
+                    <div class=" d-flex justify-content-center">
+                        <div class="bottom-options me-5"><a href="/feed"><i class="bi bi-house"></a></i></div>
+                        <div class="bottom-options ms-5"><a href="/"><i class="bi bi-arrow-left-square"></a></i></div>
+               
                     </div>
                 </div>
             </div>

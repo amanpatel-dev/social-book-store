@@ -44,31 +44,32 @@ class profileController extends Controller
     {
         $usermain = User::findOrFail($userid);
         $usermain->name = $request->name;
-        $user = UserDetail::findOrFail($userid);
+        $user = UserDetail::where('user_id', '=',Auth::user()->id)->first();
+
         $profile_pic =  $user->profile_pic;
         $background_pic =  $user->background_pic;
 
         $finalPathProfile = "";
         $finalPathBackground = "";
         $uploadPathProfile = 'uploads/profile/';
-        if ($request->hasFile('profileImage')) {
-            $file = $request->file('profileImage');
-            $ext = $file->getClientOriginalExtension();
-            $filename = time() . '.' . $ext;
-            $file->move($uploadPathProfile, $filename);
-            $finalPathProfile = $uploadPathProfile . $filename;
-        }
-        // $manager = new ImageManager(['driver' => 'gd']);
-        $uploadPathBackground = 'uploads/background/';
-        if ($request->hasFile('backgroundImage')) {
-            $file = $request->file('backgroundImage');
-            $ext = $file->getClientOriginalExtension();
-            $filename = time() . '.' . $ext;
-            // $image=$manager->make($file->getRealPath())->crop(1500, 500)->save($uploadPathBackground.$filename,80);
-            // dd($image);
-            $file->move($uploadPathBackground, $filename);
-            $finalPathBackground = $uploadPathBackground . $filename;
-        }
+        // if ($request->hasFile('profileImage')) {
+        //     $file = $request->file('profileImage');
+        //     $ext = $file->getClientOriginalExtension();
+        //     $filename = time() . '.' . $ext;
+        //     $file->move($uploadPathProfile, $filename);
+        //     $finalPathProfile = $uploadPathProfile . $filename;
+        // }
+        // // $manager = new ImageManager(['driver' => 'gd']);
+        // $uploadPathBackground = 'uploads/background/';
+        // if ($request->hasFile('backgroundImage')) {
+        //     $file = $request->file('backgroundImage');
+        //     $ext = $file->getClientOriginalExtension();
+        //     $filename = time() . '.' . $ext;
+        //     // $image=$manager->make($file->getRealPath())->crop(1500, 500)->save($uploadPathBackground.$filename,80);
+        //     // dd($image);
+        //     $file->move($uploadPathBackground, $filename);
+        //     $finalPathBackground = $uploadPathBackground . $filename;
+        // }
         if ($finalPathProfile) {
             $user->profile_pic = $finalPathProfile;
         } else {

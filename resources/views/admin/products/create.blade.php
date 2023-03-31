@@ -39,11 +39,7 @@
                                     data-bs-target="#image-tab-pane" type="button" role="tab"
                                     aria-controls="image-tab-pane" aria-selected="false">Image</button>
                             </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="color-tab" data-bs-toggle="tab"
-                                    data-bs-target="#color-tab-pane" type="button" role="tab"
-                                    aria-controls="image-tab-pane" aria-selected="false">Color</button>
-                            </li>
+                       
 
                         </ul>
                         <div class="tab-content" id="myTabContent">

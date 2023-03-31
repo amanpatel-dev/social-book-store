@@ -7,13 +7,15 @@
     <div class="row justify-center ">
         <div class="col ">
             {{-- profile info --}}
-            <div class="col-sm-12 profile-banner">
-                <img src="{{ asset($userDetail->background_pic) }}" class="img-fluid" alt="">
-            </div>
+     
             <div class="pt-3 mb-3 ps-3 pe-3 ">
-                <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-center mb-3">
                     <div> <img src="{{ asset('images/aman.jpg') }}" class="main-profile-pic" alt=""></div>
-                    <div>
+                    
+                </div>
+                <div class="d-flex justify-content-center mb-3">
+              
+                    <div class="align-self-center">
                         {{-- {{dd(Auth::user()->id )}} --}}
                         <!-- HTML !-->
                         @if ($userDetail->userMainDetail->id != Auth::user()->id)
@@ -35,6 +37,7 @@
 
                     </div>
                 </div>
+                <hr>
                 <div>
                     <ul>
                         <li style="font-weight: bold">{{ $userDetail->userMainDetail->name }}</li>
@@ -58,23 +61,14 @@
             </div>
 
             {{-- clint options --}}
-            <div class="d-flex justify-content-between p-2 clint-filter-btn">
-                <div>
-                    <a class="button-13">All</a>
-                </div>
-                <div>
-                    <a class="button-13">ReClints</a>
-                </div>
-                <div>
-                    <a class="button-13">Replies</a>
-                </div>
-            </div>
+            <hr>
+         
             @foreach ($post as $item)
                 <div class="d-flex justify-content-between">
 
                     {{-- {{dd($item->tweetUserDetail->userDetail->username)}} --}}
 
-                    <div class="contents col-sm-11 d-flex justify-content-between">
+                    <div class="contents col-sm-12 d-flex justify-content-between tweet-div mb-5 ">
                         <div class="col-2 me-2">
                             <img src="{{ asset('images/AliAbdaal.jpg') }}" class="profile-pic" alt="">
                         </div>
@@ -123,13 +117,7 @@
                         </div>
                     </div>
 
-                    <div class="col-1 text-end">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-                            <path
-                                d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
-                        </svg>
-                    </div>
+
 
                 </div>
             @endforeach 

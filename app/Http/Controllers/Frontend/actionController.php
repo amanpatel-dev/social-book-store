@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Helpers\CommonHelper;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Models\commentData;
 use App\Models\likeData;
+use App\Models\commentData;
+use Illuminate\Http\Request;
+use App\Helpers\CommonHelper;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 class actionController extends Controller
@@ -36,14 +37,30 @@ class actionController extends Controller
 
   public function comment(Request $request)
   {
+    //this is the tweet id on which comment is done
+
     $tweeter_id = $request->tweet_cmnt;
 
+    $comment = DB::table('comment')
+
+      ->select('comment.comment',)
+      ->where('comment.comment_id', '=', $tweeter_id)
+      ->get();
+
+    // $comment = commentData::where('comment_id', $tweeter_id);
+    // ';
+    // foreach ($comment as $comments) {
+    //   echo "<tr>
+    //  <td>" . $comments['comment'] . "</td></tr>";
+    // }
+    // '
     echo '  <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Comment</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <input class="comment-text" type="text" placeholder="Add Comment.." />
+      <input class="comment-text comment_input" type="text" placeholder="Add Comment.." />
+    
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -66,5 +83,9 @@ class actionController extends Controller
     echo `<div class="tmp d-none">
       ` + CommonHelper::commentCount($comment_id) + `            
  </div>`;
+  }
+
+  public function getComment()
+  {
   }
 }

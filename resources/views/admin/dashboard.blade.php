@@ -42,6 +42,44 @@
                     </div>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card card-body bg-danger text-white mb-3">
+                        <label for="">Total Completed Order</label>
+                        <h1>{{$totalOrderCompleted}}</h1>
+                        <a href="{{url('admin/orders')}}">View</a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card card-body bg-warning text-white mb-3">
+                        <label for="">Total InProgress Order</label>
+                        <h1>{{$totalOrderInProgress}}</h1>
+                        <a href="{{url('admin/orders')}}">View</a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card card-body bg-primary text-white mb-3">
+                        <label for="">Total Cancelled Order</label>
+                        <h1>{{$totalOrderCancelled}}</h1>
+                        <a href="{{url('admin/orders')}}">View</a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card card-body bg-success text-white mb-3">
+                        <label for="">Total pending Order</label>
+                        <h1>{{$totalOrderPending}}</h1>
+                        <a href="{{url('admin/orders')}}">View</a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card card-body bg-danger text-white mb-3">
+                        <label for="">Total Amount Earned</label>
+                        <h1>${{$totalAmount}}</h1>
+                        <a href="{{url('admin/orders')}}">View</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection
