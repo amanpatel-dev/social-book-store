@@ -28,14 +28,16 @@
         {{-- @include('layouts.navigation') --}}
         <main>
             <div class="row  justify-content-center">
+              
                 <div class="col-md-8 col-sm-12 col-lg-6 ">
                     @yield('content')
                 </div>
                 <div class="main-btns col-md-8 col-sm-12 col-lg-6">
                     <div class=" d-flex justify-content-center">
                         <div class="bottom-options me-5"><a href="/feed"><i class="bi bi-house"></a></i></div>
-                        <div class="bottom-options ms-5"><a href="/"><i class="bi bi-arrow-left-square"></a></i></div>
-               
+                        <div class="bottom-options ms-5"><a href="/"><i class="bi bi-arrow-left-square"></a></i>
+                        </div>
+
                     </div>
                 </div>
             </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Models\likeData;
 use App\Models\commentData;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Helpers\CommonHelper;
 use Illuminate\Support\Facades\DB;
@@ -41,26 +42,49 @@ class actionController extends Controller
 
     $tweeter_id = $request->tweet_cmnt;
 
-    $comment = DB::table('comment')
-
-      ->select('comment.comment',)
+    $comment = DB::table('comment')->join('user_details', 'comment.user_id', '=', 'user_details.user_id')
+      ->select('comment.comment', 'comment.updated_at', 'comment.user_id', 'user_details.address', 'user_details.username')
       ->where('comment.comment_id', '=', $tweeter_id)
       ->get();
 
     // $comment = commentData::where('comment_id', $tweeter_id);
-    // ';
-    // foreach ($comment as $comments) {
-    //   echo "<tr>
-    //  <td>" . $comments['comment'] . "</td></tr>";
-    // }
-    // '
+    // print_r($comment);
+
+
     echo '  <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Comment</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
       <input class="comment-text comment_input" type="text" placeholder="Add Comment.." />
-    
+<div class="all-comments">';
+
+    foreach ($comment as $comments) {
+      echo  '<div class="contents col-sm-12 d-flex justify-content-between">
+        <div class="col-2 me-2">
+            <img src="' . asset('images/AliAbdaal.jpg') . '" class="profile-pic" alt="">
+        </div>
+        <div class="col-10">
+            <div class="d-flex ">
+                <div class="col-sm-3 me-1"><a
+                        href="{{ ur' . '/profile/' . $comments->user_id . ') ">' . $comments->address . '</a>
+                </div>
+                <div class="col-sm-2 me-1">
+                    ' . Str::limit('@' . $comments->username, 5) . '
+                    </p>
+                </div>
+                <div class="col-sm-2 me-1"> ' . CommonHelper::times_ago($comments->updated_at) . ' 
+                </div>
+            </div> 
+            <div class="clints-post-text">
+              <p>' . $comments->comment . '</p>
+            </div>
+         </div>
+       </div>
+      ';
+    }
+
+    echo '
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

@@ -122,6 +122,13 @@ footer {
     padding: 0 6px;
     padding-left: 12px;  
 }
+.all-comments{
+    margin-top: 10px;
+    height: 30vh;
+    overflow: overlay;
+    overflow-x: hidden;
+}
+
 li {
     list-style: none;
 }
