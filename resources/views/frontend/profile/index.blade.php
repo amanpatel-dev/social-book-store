@@ -3,18 +3,19 @@
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
 @endsection
-<div class="wrapper">
+<div class="wrapper ">
     <div class="row justify-center ">
         <div class="col ">
             {{-- profile info --}}
-     
+
             <div class="pt-3 mb-3 ps-3 pe-3 ">
                 <div class="d-flex justify-content-center mb-3">
-                    <div> <img src="{{ asset('images/aman.jpg') }}" class="main-profile-pic" alt=""></div>
-                    
+                    <div> <img src="{{ asset('uploads/profile/' . $userDetail->profile_pic) }}" class="main-profile-pic"
+                            alt=""></div>
+
                 </div>
                 <div class="d-flex justify-content-center mb-3">
-              
+
                     <div class="align-self-center">
                         {{-- {{dd(Auth::user()->id )}} --}}
                         <!-- HTML !-->
@@ -52,7 +53,8 @@
                     <span class="pe-3"><i class="bi bi-geo-alt"></i> {{ $userDetail->state }},
                         {{ $userDetail->country }}
                     </span>
-                    <span><i class="bi bi-calendar"></i> Joined September 2021</span>
+                    <span><i class="bi bi-calendar"></i> Joined:
+                        {{ \Carbon\Carbon::parse($userDetail->created_at)->format('F y') }}</span>
                 </div>
                 <div><span class="count-following">{{ $countFollowing }}</span>
                     Following
@@ -62,7 +64,7 @@
 
             {{-- clint options --}}
             <hr>
-         
+
             @foreach ($post as $item)
                 <div class="d-flex justify-content-between">
 
@@ -70,7 +72,8 @@
 
                     <div class="contents col-sm-12 d-flex justify-content-between tweet-div mb-5 ">
                         <div class="col-2 me-2">
-                            <img src="{{ asset('images/AliAbdaal.jpg') }}" class="profile-pic" alt="">
+                            <img src="{{ asset('uploads/profile/' . $item->tweetUserDetail->userDetail->profile_pic) }}"
+                                class="profile-pic" alt="">
                         </div>
                         <div class="col-9">
                             <div class="d-flex ">
@@ -84,14 +87,15 @@
                                 <div class="col-sm-4 me-1"> {{ CommonHelper::times_ago($item->updated_at) }}</div>
                             </div>
                             <div>
-                                <div class="clint-post-image">
-                                    <img src="{{ asset('images/AliAbdaal.jpg') }}" class="img-fluid" alt=""
-                                        srcset="">
-                                </div>
                                 <div class="clints-post-text">
-                                   
-                                        <p>{{ $item->clint }}</p>
+
+                                    <p>{{ $item->clint }}</p>
                                 </div>
+                                <div class="clint-post-image">
+                                    <img src="{{ asset('uploads/tweetsImg/' . $item->image) }}"
+                                        class="img-fluid clint-post-image-main" alt="" srcset="">
+                                </div>
+
                             </div>
                             <div class="d-flex col-xm-9 justify-content-left">
                                 <div> <span
@@ -120,7 +124,7 @@
 
 
                 </div>
-            @endforeach 
+            @endforeach
         </div>
         <div class="">
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"

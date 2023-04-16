@@ -2,12 +2,12 @@
 @section('content')
     <div class="container">
         {{-- Search Box --}}
-        <div class="row mt-3">
+        <div class="row mt-3 justify-content-around">
             <div class="col-sm-8">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control select-search" placeholder="Name/Username"
+                <div class="input-group mb-3 ">
+                    <input type="text" class="form-control select-search" placeholder="Name......."
                         aria-label="Recipient's username" aria-describedby="button-addon2">
-                    <button class="btn btn-outline-secondary" type="button"><i class="bi bi-search-heart"></i></button>
+                    <button class="btn btn-outline-secondary" type="button"><i class="bi bi-search"></i></button>
                 </div>
             </div>
         </div>
@@ -18,7 +18,7 @@
         <div class="col-md-8">
             <p>
             <h1>
-                Here i will put recent search and suggestions
+           
             </h1>
             </p>
         </div>

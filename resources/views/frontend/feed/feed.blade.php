@@ -25,7 +25,7 @@
 </head>
 
 <body class="font-sans antialiased">
-    <div class="min-h-screen bg-gray-100 mb-5">
+    <div class="min-h-screen bg-gray-100 ">
         {{-- @include('layouts.navigation') --}}
         <main>
             <div class="row  justify-content-center">
@@ -54,7 +54,7 @@
 
                                     <div class="contents col-sm-12 d-flex justify-content-between">
                                         <div class="col-2 me-2">
-                                            <img src="{{ asset('images/AliAbdaal.jpg') }}" class="profile-pic"
+                                            <img src="{{ asset('uploads/profile/' . $item->tweetUserDetail->userDetail->profile_pic) }}" class="profile-pic"
                                                 alt="">
                                         </div>
                                         <div class="col-10">
@@ -76,7 +76,7 @@
                                                         <p>{{ $item->clint }}</p>
                                                     </div>
                                                     @if ($item->image)
-                                                        <img src="{{ asset('uploads/tweetsImg/' . $item->image) }}"class="img-fluid"
+                                                        <img src="{{ asset('uploads/tweetsImg/' . $item->image) }}"class="img-fluid clint-post-image-main"
                                                             alt="" srcset="">
                                                     @endif
                                                 </div>
@@ -124,14 +124,15 @@
                             @foreach ($whotofollowdata as $item)
                                 <div class="d-flex justify-content-between">
                                     <div class="col-2 me-2">
-                                        <img src="{{ asset('images/AliAbdaal.jpg') }}" class="profile-pic"
+                                        <img src="{{ asset('uploads/profile/' . $item->profile_pic) }}" class="profile-pic"
                                             alt="">
                                     </div>
                                     <div class="col-2 me-2">
-                                        {{ $item->name}}
+                                        {{ $item->name }}
                                     </div>
-                                    <button class=" follow-btn  <?= $isUserFollow ? 'following' : 'follow' ?>" role="button"
-                                        data-follow={{ $item->id }} data-userid={{ Auth::user()->id }}>
+                                    <button class=" follow-btn  <?= $isUserFollow ? 'following' : 'follow' ?>"
+                                        role="button" data-follow={{ $item->id }}
+                                        data-userid={{ Auth::user()->id }}>
                                         @if ($isUserFollow)
                                             Following
                                         @else
@@ -145,10 +146,10 @@
                 </div>
                 <div class="main-btns col-md-8 col-sm-12 col-lg-6">
                     <div class=" d-flex justify-content-center">
-                        <div class="bottom-options me-5"><a href="/feed"><i class="bi bi-house"></a></i></div>
-                        <div class="bottom-options ms-5"><a href="/"><i class="bi bi-arrow-left-square"></a></i>
+                        <div class="bottom-options me-3 ms-2 "><a href="/feed"><i class="bi bi-house"></a></i></div>
+                        <div class="bottom-options me-5 ms-5 "><a href="/"><i class="bi bi-arrow-left-square"></a></i>
                         </div>
-
+                        <div class="bottom-options me-3 ms-3"><a href="/search/user"><i class="bi bi-search"></a></i></div>
                     </div>
                 </div>
             </div>

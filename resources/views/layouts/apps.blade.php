@@ -24,12 +24,12 @@
 </head>
 
 <body class="font-sans antialiased">
-    <div class="min-h-screen bg-gray-100 mb-5">
+    <div class="min-h-screen bg-gray-100  bg-img">
         {{-- @include('layouts.navigation') --}}
         <main>
-            <div class="row  justify-content-center">
+            <div class="row  justify-content-center ">
               
-                <div class="col-md-8 col-sm-12 col-lg-6 ">
+                <div class="col-md-8 col-sm-12 col-lg-6 middle-bg  ">
                     @yield('content')
                 </div>
                 <div class="main-btns col-md-8 col-sm-12 col-lg-6">

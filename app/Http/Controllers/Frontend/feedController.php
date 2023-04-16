@@ -34,10 +34,10 @@ class feedController extends Controller
             })->get();
         }
 
-        $whotofollowdata= DB::table('users')
+        $whotofollowdata= DB::table('users')->join('user_details','users.id','=','user_details.user_id')
         ->select('*')
-        ->where('id','!=',  $user_id)
-        ->whereNotIn('id',(function ($query) {
+        ->where('users.id','!=',  $user_id)
+        ->whereNotIn('users.id',(function ($query) {
             $query->from('follower_data')
                 ->select('following_id')
                 ->where('follower_id','=',  Auth::user()->id);

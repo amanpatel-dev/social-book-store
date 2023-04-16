@@ -39,3 +39,7 @@
 	background-color: #CA2055;
 	color: white;
   }
+  .clint-post-image-main{
+	border-radius: 20px;
+    box-shadow: 0px 0px 7px 3px #625e5e4a;
+  }

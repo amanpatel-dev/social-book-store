@@ -74,9 +74,8 @@ Route::middleware(['auth'])->group(function () {
         });
 
         Route::controller(App\Http\Controllers\Frontend\searchController::class)->group(function () {
-            Route::get('/search','index');
+            Route::get('/search/user','index');
             Route::post('/searchUser','searchUser');
-
         });
         Route::controller(App\Http\Controllers\Frontend\actionController::class)->group(function () {
             Route::post('/likedTweet','likedTweet');

@@ -6,7 +6,7 @@
 
         {{-- profile inf --}}
 
-        <div class="pb-0 p-3 mb-3 ">
+        <div class="pb-0 p-3 mb-3  ">
             <div class="row ">
                 <div class="d-flex justify-content-center">
                     <img src="{{ asset('uploads/profile/' . $userDetail->profile_pic) }}" class="main-profile-pic"
@@ -36,15 +36,17 @@
         <br>
 
         <div class="pb-3 d-flex justify-content-between ">
+
             <div>
+                <label for="">State</label>
                 <input value="{{ $userDetail->state }}" name="state" class="form-control" id="">
             </div>
             <div>
                 <input value="{{ $userDetail->country }}" name="country" class="form-control" id="">
             </div>
         </div>
-        </div>
-        <hr>
+        
+
         <div class="d-flex justify-content-end">
             <div class="m-2">
                 <a class="button-13" href="{{ url('/profile') }}"><i class="  bi bi-arrow-left-circle-fill"></i>
@@ -89,7 +91,7 @@
                                         <img style="width: 350px;" src="dummy-image.png" />
                                     </div>
                                     <br>
-                                  
+
                                 </div>
                             </div>
                             <!--  end row -->
@@ -98,7 +100,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-success" id="crop_button">Crop</button>
-                                
+
                         <button type="button" class="btn btn-warning" id="upload_button"
                             onclick="upload()">Upload</button>
                     </div>
