@@ -31,7 +31,7 @@ class SliderFormRequest extends FormRequest
                 'required','string','max:800'
             ],
             'image'=>[
-                'required','image','mimes:jpg,png,jpeg,webp'
+                'required','image','mimes:jpg,png,jpeg,webp,svg'
             ],
             'status'=>[
                 'nullable'

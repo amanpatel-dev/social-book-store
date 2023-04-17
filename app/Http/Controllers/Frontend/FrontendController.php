@@ -51,12 +51,13 @@ class FrontendController extends Controller
     }
     public function newArrival()
     {
-        $newArrivalProducts = Product::latest()->take(16)->get();
+        $newArrivalProducts = Product::latest()->take(5)->get();
+        dd($newArrivalProducts );
         return view('frontend.pages.new-arrival', compact('newArrivalProducts'));
     }
     public function featuredProduct()
     {
-        $featuredProducts = Product::where('featured', '1')->latest()->take(16)->get();
+        $featuredProducts = Product::where('featured', '1')->latest()->take(6)->get();
         return view('frontend.pages.featured-product', compact('featuredProducts'));
     }
     public function searchProducts(Request $request)

@@ -69,13 +69,16 @@
     font-size: 14px;
 }
 .main-navbar .navbar{
-    padding: 0px;
-    background-color: #ddd;
+    padding: 0;
+    background-color: #ffffff;
+    box-shadow: 0px 5px 16px 17px #bba4a433;
 }
 .main-navbar .navbar .nav-item .nav-link{
-    padding: 8px 20px;
-    color: #000;
-    font-size: 15px;
+    padding: 17px 27px;
+    color: #000000;
+    font-size: 22px;
+    font-weight: 500;
+    font-family: unset;
 }
 
 @media only screen and (max-width: 600px) {
@@ -332,4 +335,40 @@
     margin: 0px 10px;
     color: #fff;
     width: 20px;
+}
+
+.caption_slider{
+  
+    right: 20% !important;
+    bottom:30% !important;
+  
+}
+.custom-carousel-content p {
+    font-size: 65px !important;
+    font-weight: 400;
+    color: rgb(0 0 0) !important;
+    margin-bottom: 30px;
+}
+.custom-carousel-content .btn-slider {
+    border: 1px solid rgb(0 0 0) !important;
+    border-radius: 7px !important;
+    padding: 8px 26px;
+    color: #000 !important;
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+}
+
+.owl-theme .owl-dots .owl-dot span {
+    width: 20px !important;
+    height: 20px !important;
+    margin: 5px 7px;
+    background: #b1d3c7 !important;
+    display: block;
+    -webkit-backface-visibility: visible;
+    transition: opacity .2s ease;
+    border-radius: 30px;
+}
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+    background: #14885e !important;
 }

@@ -1,69 +1,94 @@
 @extends('layouts.app')
 @section('title', 'Home Page')
 @section('content')
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
-
-        <div class="carousel-inner">
-            @foreach ($sliders as $key => $sliderItem)
-                <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-                    <img src="{{ asset("$sliderItem->image") }}" class="d-block w-100" alt="...">
-
-                    <div class="carousel-caption d-none d-md-block">
-                        <div class="custom-carousel-content">
-                            <h1>{!! $sliderItem->title !!}</h1>
-                            <p>
-                                {{ $sliderItem->description }}
-                            </p>
-                            <div>
-                                <a href="#" class="btn btn-slider">
-                                    Get Now
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-    <div class="py-5 bg-white">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8 text-center">
-                    <h2>
-                        Welcome to Ecommerce
-                    </h2>
-                    <div class="underline">
-
-                    </div>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste ullam consectetur laboriosam eveniet
-                        rerum corporis quidem voluptas. Sapiente rem adipisci perferendis enim in rerum eos iste optio iusto
-                        a, amet quam, perspiciatis voluptas expedita!
-                    </p>
+    {{--  --}}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 md-pb col-md-12 col-lg-6 image-wrapper">
+                <img class="w-100" src="{{asset('/images/george.png')}}"
+                    alt="Mobirise Website Builder">
+            </div>
+            <div class="col-12 col-lg col-md-12">
+                <div class="text-wrapper align-left">
+                    <h1 class="mbr-section-title align-left mbr-fonts-style mb-3 display-2"><strong>Make Reading
+                            <br>A Habit</strong></h1>
+                            <blockquote class=" ">
+                         
+                                <p class="mbr-text align-left mbr-fonts-style display-5">
+                                    The World belongs to 
+                                    <br> those who reads.</p>
+                                <footer class="blockquote-footer">Novelist <cite title="Source Title">George R.R Martin</cite></footer>
+                              </blockquote>
+                   
+                    <div class="mbr-section-btn align-left mt-3"><a class="btn btn-lg btn-primary display-7"
+                            href="/collections">Buy Books</a></div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="py-5 bg-white">
-        <div class="container">
-            <div class="row ">
+
+    
+    {{--  --}}
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-bs-ride="carousel" data-bs-interval="2500">
+    <div class="carousel-inner">
+        @foreach ($sliders as $key => $sliderItem)
+            <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                <img src="{{ asset("$sliderItem->image") }}" class="d-block w-100" alt="...">
+                <div class="carousel-caption caption_slider d-none d-md-block">
+                    <div class="custom-carousel-content">
+                        <p class="display-2 ">{!! $sliderItem->title !!}</p>
+                        
+                        <div>
+                            <a href=" {{$sliderItem->description }}" class="btn btn-slider">
+                                Get Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+<div class=" bg-white pt-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center">
+                <h2 class="display-5">
+                   <strong>Welcome to Whizzy</strong> 
+                </h2>
+                {{-- <div class="underline">
+                </div> --}}
+                <p class="display-6">
+                    A Platform for Buying Books and Connecting with <br> Phedophiles
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{--  --}}
+ 
+   
+   
+    <div class="py-5 bg-white"> 
+        <div class="container"><img src="{{ asset('/images/sliders/trending.svg') }}" class="d-block w-100" alt="...">
+            <div class="row mt-5 ">
                 <div class="col-md-12">
                     <h1>Trendings 📈📈📈</h1>
                     <div class="underline"></div>
                     <div class="row ">
                         <div class="col-md-4  owl-carousel owl-theme ">
-                        @forelse ($trendingProducts as $productItem)
+                            @forelse ($trendingProducts as $productItem)
                                 <div class="item">
                                     <div class="product-card">
                                         @if ($productItem->quantity > 0)
@@ -101,30 +126,31 @@
                                         </div>
                                     </div>
                                 </div>
-                        @empty
-                            <div class="col-md-12">
-                                <div class="p-2">
-                                    <h3>No Product Available</h3>
+                            @empty
+                                <div class="col-md-12">
+                                    <div class="p-2">
+                                        <h3>No Product Available</h3>
+                                    </div>
                                 </div>
-                            </div>
-                        @endforelse
+                            @endforelse
+                        </div>
                     </div>
-                </div>
 
                 </div>
 
             </div>
         </div>
     </div>
-    <div class="py-5 bg-white">
+    <div class="pb-5 bg-white">
         <div class="container">
-            <div class="row ">
+            <img src="{{ asset('/images/sliders/latest_arrival.svg') }}" class="d-block w-100" alt="...">
+            <div class="row pt-3">
                 <div class="col-md-12">
-                    <h1>New Arrival  🎇🎇🎇</h1>
+                    <h1>New Arrival 🎇🎇🎇</h1>
                     <div class="underline"></div>
                     <div class="row ">
                         <div class="col-md-4  owl-carousel owl-theme ">
-                        @forelse ($newArrivalProducts as $productItem)
+                            @forelse ($newArrivalProducts as $productItem)
                                 <div class="item">
                                     <div class="product-card">
                                         @if ($productItem->quantity > 0)
@@ -162,15 +188,15 @@
                                         </div>
                                     </div>
                                 </div>
-                        @empty
-                            <div class="col-md-12">
-                                <div class="p-2">
-                                    <h3>No Product Available</h3>
+                            @empty
+                                <div class="col-md-12">
+                                    <div class="p-2">
+                                        <h3>No Product Available</h3>
+                                    </div>
                                 </div>
-                            </div>
-                        @endforelse
+                            @endforelse
+                        </div>
                     </div>
-                </div>
 
                 </div>
 
@@ -186,7 +212,7 @@
             jQuery('.owl-carousel ').owlCarousel({
                 loop: true,
                 margin: 10,
-                nav: true,
+                // nav: true,
                 responsive: {
                     0: {
                         items: 1

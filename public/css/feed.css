@@ -15,12 +15,14 @@
 }
 .dfjcspaic-- {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; 
     align-items: center;
 }
 /*  */
 main {
     min-height: 100vh;
+
+    overflow-x: hidden;
 }
 footer {
     height: 35px;

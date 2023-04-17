@@ -26,7 +26,7 @@ class Index extends Component
             ->when($this->brandInputs, function ($q) {
                 $q->whereIn('brand', $this->brandInputs);
             })
-            ->when($this->brandInputs, function ($q) {
+            ->when($this->priceInput, function ($q) {
                 $q->when($this->priceInput=='high-to-low',function($q2)
                 {
                     $q2->orderBy('selling_price','DESC');
