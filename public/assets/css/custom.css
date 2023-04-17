@@ -80,7 +80,13 @@
     font-weight: 500;
     font-family: unset;
 }
-
+.main-navbar .navbar .nav-item .nav-link:hover{
+    padding: 17px 27px;
+    color: #2e2d2d;
+    font-size: 22px;
+    font-weight: 500;
+    font-family: unset;
+}
 @media only screen and (max-width: 600px) {
     .main-navbar .top-navbar .nav-link{
         font-size: 12px;
@@ -371,4 +377,10 @@
 }
 .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
     background: #14885e !important;
+}
+.social-banner-btn
+{
+    position: relative;
+    top: -55px;
+    left: 16px;
 }
