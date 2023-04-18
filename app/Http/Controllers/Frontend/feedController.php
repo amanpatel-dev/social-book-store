@@ -18,6 +18,8 @@ class feedController extends Controller
     {
         
         $user_id = Auth::user()->id;
+        $countFollowers = FollowHelper::countFollowers($user_id);
+    
         // dd($user_id);
         $isUserFollow = FollowHelper::isUserFollow(Auth::user()->id, $user_id);
         $countFollowing = FollowHelper::countFollowing($user_id);
@@ -43,8 +45,8 @@ class feedController extends Controller
                 ->where('follower_id','=',  Auth::user()->id);
         }))
         ->get();
-        
+        $userDetail = userDetail::where('user_id', Auth::user()->id)->first();
   
-        return view('frontend.feed.feed', compact('post','whotofollowdata','isUserFollow'));
+        return view('frontend.feed.feed', compact('post','whotofollowdata','isUserFollow','userDetail','countFollowing','countFollowers'));
     }
 }

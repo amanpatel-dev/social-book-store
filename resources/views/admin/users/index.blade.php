@@ -33,9 +33,9 @@
                                             <td>{{ $user->email }}</td>
                                          <td>
                                             @if($user->role_as=='1')
-                                                <label class="badge btn-primary" for="" >User</label>
+                                                <label class="badge btn-primary" for="" >Admin</label>
                                             @elseif($user->role_as=='0')
-                                                <label class="badge btn-success" for="" >Admin</label>
+                                                <label class="badge btn-success" for="" >User</label>
                                             @else
                                                 <label for="" class="badge btn-danger">None</label>
                                             @endif

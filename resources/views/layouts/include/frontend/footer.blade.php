@@ -3,21 +3,17 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
-                    <h4 class="footer-heading">Funda E-Commerce</h4>
+                    <h4 class="footer-heading">Whizzy</h4>
                     <div class="footer-underline"></div>
                     <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                        Best Platform to buy and get connected with your type of peoples💖💖
                     </p>
                 </div>
                 <div class="col-md-3">
                     <h4 class="footer-heading">Quick Links</h4>
                     <div class="footer-underline"></div>
                     <div class="mb-2"><a href="{{url('/')}}" class="text-white">Home</a></div>
-                    <div class="mb-2"><a href="{{url('/')}}" class="text-white">About Us</a></div>
-                    <div class="mb-2"><a href="{{url('/')}}" class="text-white">Contact Us</a></div>
-                    <div class="mb-2"><a href="{{url('/')}}" class="text-white">Blogs</a></div>
-                    <div class="mb-2"><a href="{{url('/')}}" class="text-white">Sitemaps</a></div>
+                
                 </div>
                 <div class="col-md-3">
                     <h4 class="footer-heading">Shop Now</h4>
@@ -54,7 +50,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <p class=""> &copy; 2022 - Funda of Web IT - Ecommerce. All rights reserved.</p>
+                    <p class=""> &copy; 2022 - whizzy - Ecommerce cum social Book store. All rights reserved.</p>
                 </div>
                 <div class="col-md-4">
                     <div class="social-media">

@@ -1,9 +1,11 @@
 <div class="d-flex justify-content-between pt-3">
     <div class="col-sm-4 ">
         <div class=" ">
-            <img type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
-                aria-controls="offcanvasWithBothOptions" src="{{ asset('images/aman.jpg') }}" class="profile-pic"
-                alt="">
+            <a href="{{ url('/profile/' . Auth::user()->id) }}">
+            <img type="button" 
+            {{-- data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" --}}
+                aria-controls="offcanvasWithBothOptions" src="{{ asset('uploads/profile/' . $userDetail->profile_pic) }}" class="profile-pic"
+                alt=""></a>
             <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
                 aria-labelledby="offcanvasWithBothOptionsLabel">
                 <div class="offcanvas-header">
@@ -13,13 +15,14 @@
                             <div class="col-sm-9">
                                 <div>
                                     <a href={{ url('/profile/' . Auth::user()->id) }}><img
-                                            src="{{ asset('images/aman.jpg') }}" class="profile-pic" alt="">
+                                            src="{{ asset('uploads/profile/' . $userDetail->profile_pic) }}" class="profile-pic" alt="">
                                     </a>
                                 </div>
 
                                 <div>
-                                    <span style="font-weight: bold">Aman chaudhary</span>
-                                    <span>@amanChaudhary</span>
+                                    <span style="font-weight: bold">{{$userDetail->userMainDetail->name}}</span>
+                                    <br>
+                                    <span>@ {{$userDetail->username}}</span>
                                 </div>
 
                                 <div class="d-flex">

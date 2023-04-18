@@ -6,12 +6,13 @@ use App\Models\allClint;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\userDetail;
 class clintController extends Controller
 {
     public function index()
     {
-        return view('Frontend.whizz.whizz');
+        $userDetail = userDetail::where('user_id', Auth::user()->id)->first();
+        return view('Frontend.whizz.whizz',compact('userDetail'));
     }
     public function store(Request $request)
     {

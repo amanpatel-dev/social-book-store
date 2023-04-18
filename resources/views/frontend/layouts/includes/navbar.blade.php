@@ -1,9 +1,9 @@
 <div class="d-flex justify-content-between pt-3">
     <div class="col-sm-4 ">
-        <div class=" ">
+        <div class=" "><a href="{{ url('/profile/' . Auth::user()->id) }}">
             <img type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
-                aria-controls="offcanvasWithBothOptions" src="{{ asset('images/aman.jpg') }}" class="profile-pic"
-                alt="">
+                aria-controls="offcanvasWithBothOptions" src="{{ asset('uploads/profile/' . $userDetail->profile_pic) }}" class="profile-pic"
+                alt=""></a>
             <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
                 aria-labelledby="offcanvasWithBothOptionsLabel">
                 <div class="offcanvas-header">
@@ -12,7 +12,7 @@
                         <div class="d-flex justify-content-between">
                             <div class="col-sm-9">
                                 <div><a href={{ url('/profile/' . Auth::user()->id) }}><img
-                                            src="{{ asset('images/aman.jpg') }}" class="profile-pic" alt=""></a>
+                                            src="{{ asset('uploads/profile/' . $userDetail->profile_pic) }}" class="profile-pic" alt=""></a>
 
                                 </div>
                                 <div>

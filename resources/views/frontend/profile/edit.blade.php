@@ -14,20 +14,23 @@
                 </div>
 
             </div>
-            <div class="row  ">
-                <div class="btn btn-primary imgEditBtn" data-bs-toggle="modal" data-bs-target="#exampleModal">edit</div>
+            <div class="row justify-content-center  ">
+                <div class="btn btn-primary imgEditBtn col-sm-3" data-bs-toggle="modal" data-bs-target="#exampleModal">change photo</div>
             </div>
         </div>
         <div style="font-weight: bold"><input type="text" name="name" class="form-control mb-2"
                 value=" {{ Auth::user()->name }}"></li>
         </div>
         <div class="input-group mb-2">
+          
+            
             <span class="input-group-text" id="basic-addon1">@</span>
             <input type="text" class="form-control" placeholder="Username" name="username"
                 value="{{ $userDetail->username }}" aria-label="Username" aria-describedby="basic-addon1">
         </div>
 
         <div class="profile-bio">
+            <label for="">Bio</label>
             <textarea name="bio" id="" row="4" class="form-control mb-2">
                                 {{ $userDetail->bio }}
                             </textarea>
@@ -42,6 +45,7 @@
                 <input value="{{ $userDetail->state }}" name="state" class="form-control" id="">
             </div>
             <div>
+                <label for="">Country</label>
                 <input value="{{ $userDetail->country }}" name="country" class="form-control" id="">
             </div>
         </div>
@@ -49,12 +53,12 @@
 
         <div class="d-flex justify-content-end">
             <div class="m-2">
-                <a class="button-13" href="{{ url('/profile') }}"><i class="  bi bi-arrow-left-circle-fill"></i>
+                <a class="btn btn-danger" href="{{ url('/profile') }}"><i class="  bi bi-arrow-left-circle-fill"></i>
                     Back
                 </a>
             </div>
             <div class="m-2">
-                <button class="button-13" type="submit" role="button">Save</a>
+                <button class="btn btn-primary  " type="submit" role="button">Save</a>
             </div>
         </div>
     </form>

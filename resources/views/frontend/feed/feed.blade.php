@@ -54,8 +54,9 @@
 
                                     <div class="contents col-sm-12 d-flex justify-content-between">
                                         <div class="col-2 me-2">
+                                            <a href="{{ url('/profile/' . $item->tweetUserDetail->userDetail->user_id) }}">
                                             <img src="{{ asset('uploads/profile/' . $item->tweetUserDetail->userDetail->profile_pic) }}" class="profile-pic"
-                                                alt="">
+                                                alt=""></a>
                                         </div>
                                         <div class="col-10">
                                             <div class="d-flex ">
@@ -124,8 +125,9 @@
                             @foreach ($whotofollowdata as $item)
                                 <div class="d-flex justify-content-between">
                                     <div class="col-2 me-2">
+                                        <a href="{{ url('/profile/' .  $item->user_id) }}">
                                         <img src="{{ asset('uploads/profile/' . $item->profile_pic) }}" class="profile-pic"
-                                            alt="">
+                                            alt=""></a>
                                     </div>
                                     <div class="col-2 me-2">
                                         {{ $item->name }}

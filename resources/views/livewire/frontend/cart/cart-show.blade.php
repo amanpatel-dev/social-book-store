@@ -54,7 +54,7 @@
                                             </a>
                                         </div>
                                         <div class="col-md-2 my-auto">
-                                            <label class="price">${{ $cartItem->product->selling_price }} </label>
+                                            <label class="price">Rs.{{ $cartItem->product->selling_price }} </label>
                                         </div>
                                         <div class="col-md-2 col-5 my-auto">
                                             <div class="quantity">
@@ -73,7 +73,7 @@
                                         </div>
                                         <div class="col-md-1 my-auto">
                                             <label
-                                                class="price">${{ $cartItem->product->selling_price * $cartItem->quantity }}
+                                                class="price">Rs.{{ $cartItem->product->selling_price * $cartItem->quantity }}
                                             </label>
                                             @php
                                             $totalprice += $cartItem->product->selling_price * $cartItem->quantity    

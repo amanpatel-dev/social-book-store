@@ -6,7 +6,7 @@
         <div class="inner">
             <div class="d-flex m-2">
                 <div class="col-sm-2">
-                    <img src="{{ asset('images/AliAbdaal.jpg') }}" class="profile-pic" alt="">
+                    <img src="{{ asset('uploads/profile/' . $userDetail->profile_pic) }}" class="profile-pic" alt="">
                 </div>
                 <div class="col-sm-10 main-tweet-container">
                     <label for="" class="w-100">
@@ -33,7 +33,7 @@
                         </div>
                         <div>
                             <span class="bioCount" id="count">140</span>
-                            <input type="submit" value="Tweet" name="tweet" class="submit">
+                            <input type="submit" value="Post" name="tweet" class="submit">
                         </div>
                     </div>
                 </div>
