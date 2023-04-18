@@ -9,36 +9,36 @@
 
             <div class="me-md-3 me-xl-5">
                 <h2>Dashboard</h2>
-                <p class="mb-md-0">Analytics</p>
+                <p class="mb-md-0 display-3">Analytics</p>
             </div>
 
             <div class="row">
                 <div class="col-md-3">
                     <div class="card card-body bg-primary text-white mb-3">
-                        <label for="">Total Orders</label>
+                        <label for="" class="display-5">Total Orders</label>
                         <h1>{{$totalOrder}}</h1>
-                        <a href="{{url('admin/orders')}}">View</a>
+                        {{-- <a href="{{url('admin/orders')}}">View</a> --}}
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="card card-body bg-success text-white mb-3">
-                        <label for="">Today Orders</label>
+                        <label for=""  class="display-5">Today Orders</label>
                         <h1>{{$todayOrder}}</h1>
-                        <a href="{{url('admin/orders')}}">View</a>
+                        {{-- <a href="{{url('admin/orders')}}">View</a> --}}
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="card card-body bg-warning text-white mb-3">
-                        <label for="">Monthly Orders</label>
+                        <label for="" class="display-5">Monthly Orders</label>
                         <h1>{{$thisMonthOrder}}</h1>
-                        <a href="{{url('admin/orders')}}">View</a>
+                        {{-- <a href="{{url('admin/orders')}}">View</a> --}}
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="card card-body bg-danger text-white mb-3">
-                        <label for="">Yearly Orders</label>
+                        <label for="" class="display-5">Yearly Orders</label>
                         <h1>{{$thisYearOrder}}</h1>
-                        <a href="{{url('admin/orders')}}">View</a>
+                        {{-- <a href="{{url('admin/orders')}}">View</a> --}}
                     </div>
                 </div>
             </div>
@@ -46,37 +46,37 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="card card-body bg-danger text-white mb-3">
-                        <label for="">Total Completed Order</label>
+                        <label for="" class="display-5">Total Completed Order</label>
                         <h1>{{$totalOrderCompleted}}</h1>
-                        <a href="{{url('admin/orders')}}">View</a>
+                        {{-- <a href="{{url('admin/orders')}}">View</a> --}}
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="card card-body bg-warning text-white mb-3">
-                        <label for="">Total InProgress Order</label>
+                        <label for="" class="display-5">Total InProgress Order</label>
                         <h1>{{$totalOrderInProgress}}</h1>
-                        <a href="{{url('admin/orders')}}">View</a>
+                        {{-- <a href="{{url('admin/orders')}}">View</a> --}}
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="card card-body bg-primary text-white mb-3">
-                        <label for="">Total Cancelled Order</label>
+                        <label for="" class="display-5">Total Cancelled Order</label>
                         <h1>{{$totalOrderCancelled}}</h1>
-                        <a href="{{url('admin/orders')}}">View</a>
+                        {{-- <a href="{{url('admin/orders')}}">View</a> --}}
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="card card-body bg-success text-white mb-3">
-                        <label for="">Total pending Order</label>
+                        <label for="" class="display-5">Total pending Order</label>
                         <h1>{{$totalOrderPending}}</h1>
-                        <a href="{{url('admin/orders')}}">View</a>
+                        {{-- <a href="{{url('admin/orders')}}">View</a> --}}
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="card card-body bg-danger text-white mb-3">
-                        <label for="">Total Amount Earned</label>
+                    <div class="card card-body bg-primary text-white mb-3">
+                        <label for=""  class="display-5">Total Amount Earned</label>
                         <h1>${{$totalAmount}}</h1>
-                        <a href="{{url('admin/orders')}}">View</a>
+                        {{-- <a href="{{url('admin/orders')}}">View</a> --}}
                     </div>
                 </div>
             </div>
