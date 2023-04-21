@@ -4,10 +4,11 @@ namespace App\Http\Livewire\Frontend\Checkout;
 
 use App\Models\Cart;
 use App\Models\Order;
-use App\Models\OrderItem;
 use Livewire\Component;
+use App\Models\OrderItem;
 use Illuminate\Support\Str;
 use PhpParser\Node\Stmt\Return_;
+use AmrShawky\LaravelCurrency\Facade\Currency;
 
 class CheckoutShow extends Component
 {
@@ -117,14 +118,29 @@ class CheckoutShow extends Component
             $this->totalProductAmount += $cartItem->product->selling_price * $cartItem->quantity;
         }
         return $this->totalProductAmount;
+       
+    }
+    public function totalProductAmountInUsd(){
+        $this->totalProductAmount = 0;
+        $this->carts = Cart::where('user_id', auth()->user()->id)->get();
+        foreach ($this->carts  as $cartItem) {
+            $this->totalProductAmount += $cartItem->product->selling_price * $cartItem->quantity;
+        }
+        $result = Currency::convert()
+        ->from('USD')
+        ->to('INR')
+        ->get();
+        return floor($this->totalProductAmount/$result);
     }
     public function render()
     {
         $this->fullname = auth()->user()->name;
         $this->email = auth()->user()->email;
         $this->totalProductAmount = $this->totalProductAmount();
+        $totalUsd=$this->totalProductAmountInUsd();
         return view('livewire.frontend.checkout.checkout-show', [
-            'totalProductAmount' => $this->totalProductAmount
+            'totalProductAmount' => $this->totalProductAmount,
+            'totalUsd'=>$totalUsd
         ]);
     }
 }

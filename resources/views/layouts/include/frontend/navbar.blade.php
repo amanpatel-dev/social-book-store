@@ -75,7 +75,7 @@
                                     <li><a class="dropdown-item" href="{{ url('cart') }}"><i
                                                 class="fa fa-shopping-cart"></i> My Cart</a></li>
                                                 <li><a class="dropdown-item" href="{{ url('/feed') }}"><i
-                                                    class="fa fa-shopping-cart"></i> Social</a></li>
+                                                    class="fa fa-snowflake-o "></i> Social</a></li>
                                     <li>
 
                                         <a class="dropdown-item" href="{{ route('logout') }}"

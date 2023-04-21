@@ -44,7 +44,30 @@ class DashboardController extends Controller
       ->where('orders.id', '=', DB::raw('order_items.order_id'))
       ->where('orders.status_message', '=', 'completed')
       ->sum('order_items.price');
+
+      $totalAmountToday = DB::table('orders')
+      ->crossJoin('order_items')->where('orders.id', '=', DB::raw('order_items.order_id'))
+      ->select('order_items.price',)
+      ->where('orders.status_message', '=', 'completed')
+      ->whereDate('orders.created_at','=',$todayDate)
+      ->sum('order_items.price');
+
+
+      $totalAmountMonth = DB::table('orders')
+      ->crossJoin('order_items')->where('orders.id', '=', DB::raw('order_items.order_id'))
+      ->select('order_items.price',)
+      ->where('orders.status_message', '=', 'completed')
+      ->whereMonth('orders.created_at','=',$thisMonth)
+      ->sum('order_items.price');
+
+      $totalAmountYear = DB::table('orders')
+      ->crossJoin('order_items')->where('orders.id', '=', DB::raw('order_items.order_id'))
+      ->select('order_items.price',)
+      ->where('orders.status_message', '=', 'completed')
+      ->whereYear('orders.created_at','=',$thisYear)
+      ->sum('order_items.price');
     // dd($totalAmount);
+
 
     $totalOrderCompleted= DB::table('orders')->where('orders.status_message', '=', 'completed')->count();
     $totalOrderInProgress= DB::table('orders')->where('orders.status_message', '=', 'in progress')->count();
@@ -68,6 +91,9 @@ class DashboardController extends Controller
         'totalOrderInProgress',
         'totalOrderCancelled',
         'totalOrderPending',
+        'totalAmountToday',
+        'totalAmountMonth',
+        'totalAmountYear'
       )
     );
   }

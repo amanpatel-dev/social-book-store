@@ -3,10 +3,12 @@
 @section('content')
     {{--  --}}
     <div class="container">
+        <h1>{{$result}}</h1>
         <div class="row justify-content-center">
             <div class="col-12 md-pb col-md-12 col-lg-6 image-wrapper">
                 <img class="w-100" src="{{ asset('/images/george.png') }}" alt="Mobirise Website Builder">
             </div>
+
             <div class="col-12 col-lg col-md-12">
                 <div class="text-wrapper align-left">
                     <h1 class="mbr-section-title align-left mbr-fonts-style mb-3 display-2"><strong>Make Reading
@@ -31,7 +33,7 @@
 
     {{--  --}}
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-bs-ride="carousel"
-        data-bs-interval="2500">
+        data-bs-interval="1500">
         <div class="carousel-inner">
             @foreach ($sliders as $key => $sliderItem)
                 <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">

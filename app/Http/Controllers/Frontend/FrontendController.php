@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Controller;
-use App\Models\Category;
-use App\Models\Product;
 use App\Models\Slider;
+use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use AmrShawky\LaravelCurrency\Facade\Currency;
+use AshAllenDesign\LaravelExchangeRates\Facades\ExchangeRate;
+// use AshAllenDesign\LaravelExchangeRates\Classes\ExchangeRate;
+
 
 class FrontendController extends Controller
 {
@@ -15,7 +19,14 @@ class FrontendController extends Controller
         $sliders = Slider::all();
         $trendingProducts = Product::where('trending', '1')->latest()->take(9)->get();
         $newArrivalProducts = Product::latest()->take(8)->get();
-        return view('frontend.index', compact('sliders', 'trendingProducts', 'newArrivalProducts'));
+        // $exchangeRates = new ExchangeRate();
+        // $result = $exchangeRates->exchangeRate('GBP', 'EUR');
+        $result = Currency::convert()
+        ->from('USD')
+        ->to('INR')
+        ->get();
+
+        return view('frontend.index', compact('sliders', 'trendingProducts', 'newArrivalProducts', 'result'));
     }
     public function categories()
     {
@@ -52,7 +63,7 @@ class FrontendController extends Controller
     public function newArrival()
     {
         $newArrivalProducts = Product::latest()->take(16)->get();
-        dd($newArrivalProducts );
+        dd($newArrivalProducts);
         return view('frontend.pages.new-arrival', compact('newArrivalProducts'));
     }
     public function featuredProduct()
@@ -63,11 +74,11 @@ class FrontendController extends Controller
     public function searchProducts(Request $request)
     {
         if ($request->search) {
-            $searchKeyword=$request->search;
-            $searchProducts = Product::where('name', 'LIKE', '%'.$request->search.'%')->latest()->paginate(15);
-            return view('frontend.pages.search',compact('searchProducts','searchKeyword'));
+            $searchKeyword = $request->search;
+            $searchProducts = Product::where('name', 'LIKE', '%' . $request->search . '%')->latest()->paginate(15);
+            return view('frontend.pages.search', compact('searchProducts', 'searchKeyword'));
         } else {
-            return redirect()->back()->with('message','Empty Search');
+            return redirect()->back()->with('message', 'Empty Search');
         }
     }
     public function thankyou()

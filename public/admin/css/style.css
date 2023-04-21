@@ -23188,3 +23188,11 @@ dl li {
 }
 
 /*# sourceMappingURL=maps/style.css.map */
+
+.card-css{
+  border-radius: 20px;
+  height: 126px;
+  box-shadow: 0px 1px 6px 2px #68636366;
+  margin: 8px;
+
+}

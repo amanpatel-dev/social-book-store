@@ -10,7 +10,7 @@
                         <div class="shadow bg-white p-3">
                             <h4 class="text-primary">
                                 Item Total Amount :
-                                <span class="float-end">${{ $this->totalProductAmount }}</span>
+                                <span class="float-end">Rs.{{ $this->totalProductAmount }}</span>
                             </h4>
                             <hr>
                             <small>* Items will be delivered in 3 - 5 days.</small>
@@ -18,6 +18,7 @@
                             <small>* Tax and other charges are included ?</small>
                         </div>
                     </div>
+                    <h1>{{$totalUsd}}</h1>
                     <div class="col-md-12">
                         <div class="shadow bg-white p-3">
                             <h4 class="text-primary">
@@ -76,7 +77,7 @@
                                                 data-bs-target="#cashOnDeliveryTab" type="button" role="tab"
                                                 aria-controls="cashOnDeliveryTab" aria-selected="true">Cash on
                                                 Delivery</button>
-                                            <button wire:loading.attr="disabled" class="nav-link fw-bold"
+                                            <button  wire:loading.attr="disabled" class="nav-link fw-bold"
                                                 id="onlinePayment-tab" data-bs-toggle="pill"
                                                 data-bs-target="#onlinePayment" type="button" role="tab"
                                                 aria-controls="onlinePayment" aria-selected="false">Online
@@ -102,9 +103,7 @@
                                                 aria-labelledby="onlinePayment-tab" tabindex="0">
                                                 <h6>Online Payment Mode</h6>
                                                 <hr />
-                                                {{-- <button wire:loading.attr="disabled" type="button"
-                                                    class="btn btn-warning">Pay Now (Online
-                                                    Payment)</button> --}}
+                                            
                                                 <div >
                                                     <div id="paypal-button-container"></div>
                                                 </div>
@@ -119,6 +118,7 @@
                     </div>
 
                 </div>
+                
             @else
                 <div class="card card-boy shadow text-center p-md-5">
                     <h4>No items in cart</h4>
@@ -163,7 +163,7 @@
                 return actions.order.create({
                     purchase_units: [{
                         amount: {
-                            value: '77.44' // Can also reference a variable or function
+                            value: "{{ $this->totalProductAmount }}" // Can also reference a variable or function
                         }
                     }]
                 });
