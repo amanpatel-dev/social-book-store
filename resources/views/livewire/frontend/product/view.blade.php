@@ -8,7 +8,7 @@
             @endif
             <div class="row">
                 <div class="col-md-5 mt-3">
-                    <div class="bg-white border d-flex justify-content-center">
+                    <div class="  d-flex justify-content-center">
                         @if ($product->productImages)
                             {{-- <img src="{{ asset($product->productImages[0]->image) }}" class=" product-view-img d-flex"
                                 alt="Img"> --}}

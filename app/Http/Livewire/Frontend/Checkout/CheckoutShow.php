@@ -130,6 +130,7 @@ class CheckoutShow extends Component
         ->from('USD')
         ->to('INR')
         ->get();
+        // dd($result);
         return floor($this->totalProductAmount/$result);
     }
     public function render()

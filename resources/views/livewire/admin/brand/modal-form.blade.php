@@ -4,7 +4,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add Brands</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Add Authors</h5>
                 <button type="button" class="btn-close" wire:click="closeModal" data-bs-dismiss="modal"
                     aria-label="Close"></button>
             </div>
@@ -24,14 +24,14 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="">Brand Name</label>
+                        <label for="">Authors Name</label>
                         <input type="text" wire:model.defer="name" class="form-control">
                         @error('name')
                             <small class="text-danger"> {{ $message }}</small>
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="">Brand Slug</label>
+                        <label for="">Authors Slug</label>
                         <input type="text" wire:model.defer="slug" class="form-control">
                         @error('slug')
                             <small class="text-danger"> {{ $message }}</small>
@@ -69,7 +69,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Update Brands</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Update Authors</h5>
                 <button type="button" class="btn-close" wire:click="closeModal" data-bs-dismiss="modal"
                     aria-label="Close"></button>
             </div>
@@ -94,14 +94,14 @@
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label for="">Brand Name</label>
+                            <label for="">Authors Name</label>
                             <input type="text" wire:model.defer="name" class="form-control">
                             @error('name')
                                 <small class="text-danger"> {{ $message }}</small>
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="">Brand Slug</label>
+                            <label for="">Authors Slug</label>
                             <input type="text" wire:model.defer="slug" class="form-control">
                             @error('slug')
                                 <small class="text-danger"> {{ $message }}</small>
@@ -136,7 +136,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Delete Brands</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Delete Authors</h5>
                 <button type="button" class="btn-close" wire:click="closeModal" data-bs-dismiss="modal"
                     aria-label="Close"></button>
             </div>

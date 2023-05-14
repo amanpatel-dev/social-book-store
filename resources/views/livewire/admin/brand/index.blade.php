@@ -7,9 +7,9 @@
                 <div class="card">
                     <div class="card-header">
                         <h4>
-                            Brands list
+                            Authors list
                             <a href="" data-bs-toggle="modal" data-bs-target="#addBrandModal"
-                                class="btn btn-primary btn-sm float-end"> Add Brands</a>
+                                class="btn btn-primary btn-sm float-end"> Add Authors</a>
                         </h4>
                     </div>
                     <div class="card-body">
