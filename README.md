@@ -77,6 +77,6 @@ If have any problem text at my Linkedin([https://www.linkedin.com/in/amanpatel-d
 
 <div><img src="https://github.com/amanpatel-dev/social-book-store/blob/main/ScreenShots/7-admin%20dasd.png" ></div>
 
-- Watch the Video For Full Website Tour [Going to put it soon]
+- Watch the Video For Full Website Tour [https://youtu.be/Kjt7OeN_hsk]
 
 # Thanks for Checking Repository❤️
