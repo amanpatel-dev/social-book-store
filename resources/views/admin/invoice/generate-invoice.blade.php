@@ -217,7 +217,7 @@
 
     <br>
     <p class="text-center">
-        Thank your for shopping with Funda of Web IT
+       
     </p>
 
 </body>
