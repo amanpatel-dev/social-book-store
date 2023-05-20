@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+  <title>WhatsApp Clone</title>
+  <style>
+    .chat-container {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .chat-bubble {
+      background-color: #DCF8C6;
+      color: #000;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    .chat-bubble.received {
+      background-color: #ECE5DD;
+    }
+    .chat-input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-top: 10px;
+    }
+    .send-button {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-container">
+    <div class="chat-bubble received">Hello there!</div>
+    <div class="chat-bubble received">How are you doing?</div>
+    <div class="chat-bubble">Hi! I'm good. How about you?</div>
+    <div class="chat-bubble">I'm doing great, thanks!</div>
+    <div class="chat-bubble">What's new with you?</div>
+    <div class="chat-bubble received">Not much, just working on some projects.</div>
+    <div class="chat-bubble received">By the way, have you seen the latest news?</div>
+    <div class="chat-bubble">No, I haven't. What's going on?</div>
+  </div>
+
+  <div class="chat-input-container">
+    <input type="text" class="chat-input" placeholder="Type a message...">
+    <button class="send-button bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">Send</button>
+  </div>
+</body>
+</html>

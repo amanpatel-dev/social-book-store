@@ -35,7 +35,7 @@ class LoginController extends Controller
             return redirect('/admin/dashboard')->with('message', 'Welcome Admin');
         }
         else{
-            return redirect('/home')->with('status','Access denide');
+            return redirect('/')->with('status','Access denide');
         }
     }
 
