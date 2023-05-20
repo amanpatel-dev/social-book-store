@@ -20,6 +20,12 @@ Whizzy is a social book store that is like amazon having amazon mini tv, it have
 
 -The idea behind creating this project was to make a platform for phedophiles and wirtes where they can come together.
 
+## Made with
+- Laravel
+- Mysql
+- Livewire
+- HTML/CSS/JS/Juery
+- Deadline Pressure🏹😐
 
 ## Deployment
 
@@ -71,6 +77,6 @@ If have any problem text at my Linkedin([https://www.linkedin.com/in/amanpatel-d
 
 <div><img src="https://github.com/amanpatel-dev/social-book-store/blob/main/ScreenShots/7-admin%20dasd.png" ></div>
 
-- Watch the Video For Full Website Tour [youtube.com]
+- Watch the Video For Full Website Tour [Going to put it soon]
 
 # Thanks for Checking Repository❤️
