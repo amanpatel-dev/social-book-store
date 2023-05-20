@@ -57,7 +57,7 @@ If have any problem text at my Linkedin([https://www.linkedin.com/in/amanpatel-d
 
 ![alt text](https://github.com/amanpatel-dev/social-book-store/blob/main/public/images/logomain.png)
 
-# ScreenShot of very liitle Part
+# ScreenShot of very little Part
 
 ## Home Page
 
